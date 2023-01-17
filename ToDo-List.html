@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+
+</head>
+<body>
+    <div id="main">
+   <input id="text" type="text"><button onclick="add(this)">Add Task</button>
+   <div id="task">
+
+   </div>
+    </div>
+    <script>
+        var text=document.getElementById('text');
+        var task=document.getElementById('task');
+        function add(e){
+            div=document.createElement('div');
+            
+             para=document.createElement('p');
+             Done=document.createElement('button');
+             del=document.createElement('button');
+            para.innerHTML=text.value;
+            Done.innerHTML='Done';
+            del.innerHTML='Delete';
+            div.appendChild(para);
+            div.appendChild(Done);
+            div.appendChild(del);
+            
+            // div.style.display="flex";
+            // div.style.flex-direction="coloum";
+
+            task.appendChild(div);
+            Done.addEventListener('click',mydone);
+            del.addEventListener('click',mydel)
+        }
+            function mydone(e){
+                var p= e.target.parentElement.firstChild;
+                var doneButton= e.target
+                doneButton.innerHTML=doneButton.innerHTML=='Done'?'Undo':'Done';
+                var z=p.innerHTML;
+                z=z.indexOf('<strike>')>-1 ? z.split('<strike>')[1].split('</strike>')[0] : p.innerHTML;
+                p.innerHTML=doneButton.innerHTML=='Undo'? `<strike>${z}</strike>` :  z;
+            }
+            function mydel(e){
+                e.target.parentElement.remove();
+            }
+        
+    </script>
+</body>
+</html>

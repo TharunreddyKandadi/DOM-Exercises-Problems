@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="main">
+        Name:<input type="text"><br>
+        Ph No:<input type="number"><br>
+        E-mail:<input type="email"><br>
+        Image:<input type="file"><br>
+        <input type="submit" value="Add Contact">
+    </form>
+    <button onclick="acd()">A-Z</button>
+    <button onclick="dcd()">Z-A</button>
+    <input type="text" id="search1" onkeyup="search()">
+    <div id="semi">
+        
+    </div>
+    <script>
+        let addingDiv=[];
+        var semi=document.getElementById('semi');
+        var d= document.getElementById('main')
+        d.addEventListener('submit',myfunction);
+        function myfunction(e){
+            e.preventDefault();
+            var arr=['Name :','PhNo :','E-mail :','Image :'];
+            var div=document.createElement('div');
+            var s=`<p onclick="remove(this)" style="color: red; float: right; margin-top: 1px; font-weight:bolder;">${'x'}</p>`;
+            for(let i=0;i<e.target.elements.length-1;i++){
+                var z=e.target.elements[i].value;
+                s+=`<p>${arr[i]} ${z}</p>`;
+            }
+            s+=`<button style="border: none;background-color: green; color: white; border-radius: 3px; margin-bottom: 14px; float: right" onclick="edit(this)">Edit</button>`
+            div.innerHTML=s;
+            div.style.backgroundColor='yellow'
+            div.style.borderColor='red';
+            div.style.borderStyle='solid';
+            div.style.borderRadius='12px';
+            div.style.width='350px';
+            div.style.padding='8px';
+            div.style.margin='10px';
+            semi.appendChild(div);
+            addingDiv.push(div);
+            console.log(addingDiv)
+        }
+        function remove(a){
+            a.parentElement.remove();
+           addingDiv= addingDiv.filter(i=>i!= a.parentElement);
+        }
+        function edit(b){
+            let nodes=b.parentElement.children;
+            let formchild=document.getElementsByTagName('input')
+            for(let i=0;i<nodes.length-2;i++){
+                if(i==1){
+                    formchild[i].value=Number(nodes[i+1].innerHTML.split(': ')[1]);
+                }
+                formchild[i].value=nodes[i+1].innerHTML.split(': ')[1];
+            }
+        }
+        // function call(){
+        //     var semichilds=semi.children;
+        //     let z=[];
+        //     for(let i=0;i<semichilds.length;i++){
+        //         z.push(semichilds[i]);
+        //     }
+        //     return z;
+        // }
+        
+        function acd(){
+            var z=addingDiv;
+            z.sort((a,b)=>{
+                let f1=a.children[1].innerHTML;
+                let f2=b.children[1].innerHTML;
+                return f1.toLowerCase()<f2.toLowerCase()?-1:1;
+            })
+            semi.innerHTML='';
+            for(let i=0;i<z.length;i++){
+                semi.appendChild(z[i]);
+            }
+        }
+        function dcd(){
+            var z=addingDiv;
+            z.sort((a,b)=>{
+                let f1=a.children[1].innerHTML;
+                let f2=b.children[1].innerHTML;
+                return f1.toLowerCase()<f2.toLowerCase()?1:-1;
+            })
+            semi.innerHTML='';
+            for(let i=0;i<z.length;i++){
+                semi.appendChild(z[i]);
+            }
+        }
+        var search1=document.getElementById('search1');
+        function search(){
+            var z=addingDiv;
+            var filtered=z.filter(i=>{
+                var split1=i.children[1].innerHTML.split(': ')[1];
+                return split1.toLowerCase().startsWith(search1.value.toLowerCase())
+            })
+            semi.innerHTML='';
+            for(let i=0;i<filtered.length;i++){
+                semi.appendChild(filtered[i]);
+            }
+        }
+    </script>
+</body>
+</html>

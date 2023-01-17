@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        img{
+            width: 200px;
+            height: 150px;
+            
+            
+        }
+        .heading >div {
+        display: flex; /* makes the div a flex container */
+        align-items: center; /* centers the content vertically */
+        justify-content: center; /* centers the content horizontally */
+        font-size: large;
+        font-weight: bold;
+        
+        }
+#container{
+    display: flex; /* makes the div a flex container */
+    justify-content: center; /* centers the div horizontally */
+    align-items: center; /* centers the div vertically */
+    flex-wrap:wrap; /* make it wrap to next line if needed*/
+}
+body{
+    background-color: burlywood;
+}
+    </style>
+</head>
+<body>
+    <div class="heading">;
+    <div>Ticket Booking</div>
+   <div> Occupied :<span id="occ">0</span></div>
+    <div>Avaliable : <span id="avail"> </span></div>
+    </div>
+    <div id="container">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+        <img id="ok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyycPl4UnahYDze7tMK8dEDXQseRkkuYsNw&usqp=CAU" alt="no-img" onclick="change(this)">
+
+    </div>
+    <script>
+        var occu=0;
+        var avail=document.getElementById('avail');
+        var container=document.getElementById('container');
+        var z=container.childElementCount;
+        var availa=z;
+        avail.innerHTML=z;
+        var ok=document.getElementById('ok');
+        var occ=document.getElementById('occ');
+        var avail=document.getElementById('avail');
+        function change(a){
+            a.style.filter= a.style.filter=='brightness(30%)' ? 'brightness(100%)' : 'brightness(30%)';
+            occ.innerHTML=a.style.filter=='brightness(30%)' ? ++occu : --occu;
+            avail.innerHTML=a.style.filter=='brightness(100%)' ? ++availa : --availa;
+        }
+    </script>
+</body>
+</html>

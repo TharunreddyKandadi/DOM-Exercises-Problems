@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="img" type="image" src="https://images.unsplash.com/photo-1672901337632-5e890d6b58f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="no image" width="550px" height="350px">
+   <br> 
+   <div style="width: 550px;" > <button onclick="pic()">Previous</button>
+    <button style="float: right;" onclick="pic1()">Next</button>
+ </div>
+    <script>
+        let ab=0;
+        let arr=['https://images.unsplash.com/photo-1672901337632-5e890d6b58f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+            'https://plus.unsplash.com/premium_photo-1661725040112-952f2af028f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                'https://images.unsplash.com/photo-1672854098129-2fa2af96f966?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                'https://images.unsplash.com/photo-1671725779305-bff966b40cbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwzMXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                'https://images.unsplash.com/photo-1672761303639-3fd08db84dc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                'https://images.unsplash.com/photo-1672758696635-10230ce16707?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60',
+                'https://images.unsplash.com/photo-1672895349797-0da565771480?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3OXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+                ]
+                var img=document.getElementById('img');
+        function pic1(){
+            if(ab>=6){
+                ab=-1;
+            }
+            ab++;
+            img.src=arr[ab];
+        }  
+        function pic(){
+            
+            if(ab<1){
+                ab=7;
+            }
+            ab--;
+            img.src=arr[ab];
+        }      
+    </script>
+</body>
+</html>

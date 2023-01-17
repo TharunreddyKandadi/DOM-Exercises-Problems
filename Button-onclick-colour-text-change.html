@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  style="border-radius: 5px;" id="change" onclick="colourchange()">white</button>
+    <script>
+        var diff=document.getElementById('change');
+        function colourchange(){
+            diff.style.backgroundColor=diff.innerHTML=='white'?'green':'white';
+          diff.innerHTML=diff.innerHTML=='white'?'green':'white';
+        }           
+    </script>
+</body>
+</html>

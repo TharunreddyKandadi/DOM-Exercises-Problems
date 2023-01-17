@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Like and DisLike Button</h1>
+    <div style="display: flex;">
+        <div style="background-color:lightgreen; border-radius: 5px; border-style: solid; width: 70px; height: 70px;" onclick="count1()" >
+            <h3 style= "justify-content: center; text-align: center;">Like</h3>   
+        </div>
+        <p id="inc1" style="margin-top: 25px; margin-left: 20px;">0</p>
+
+    </div>
+    <br>
+    <div style="display: flex; height: 70px;">
+        <div style="background-color:lightcoral; border-radius: 5px; border-style: solid; width: 100px; height: 70px;" onclick="count2()" >
+            <h3 style= "justify-content: center; text-align: center;">DisLike</h3>
+        </div>
+        
+        <p id="inc2" style="margin-top: 25px; margin-left: 20px;" >0</p>
+    </div>
+    <script>
+        let a=1;
+        let b=1;
+        var inc1=document.getElementById('inc1');
+        var inc2=document.getElementById('inc2');
+        function count1(){
+            inc1.innerHTML=a;
+            a++;
+        }
+        function count2(){
+            inc2.innerHTML=b;
+            b++;
+        }
+        
+    </script>
+</body>
+</html>

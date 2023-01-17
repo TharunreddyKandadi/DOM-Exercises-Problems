@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="link" type="text" placeholder="Past The Link" style="width: 90%;"><br>
+    <button id="img" onclick="image()" style="margin-top: 10px; justify-content: center;">Add Image</button>
+   <div id="res">
+
+   </div>
+    <script>
+        var linkimg=document.getElementById('link');
+        var result=document.getElementById('res')
+
+        function image(){
+            var newimg=document.createElement('input')
+            newimg.type='image';
+            newimg.src=linkimg.value;
+            newimg.alt='no img';
+            // newimg.style.width='300px';
+            // newimg.style.height='300px';
+            result.appendChild(newimg);
+        }
+    </script>
+</body>
+</html>

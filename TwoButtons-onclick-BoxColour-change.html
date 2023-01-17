@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button:hover{
+            background-color: brown;
+        }   
+    </style>
+</head>
+<body>
+    <div id="colchange" style="width: 20rem;height: 20rem; background-color:white;border-color: black;border-style: solid;">
+    </div>
+    <button style="margin-top: 15px; border-color: black; border-style: solid; onmo" onclick="change()">ON</button>
+    <button id="colour" style="margin-top: 15px; border-color: black; border-style: solid; onmo" onclick="change1()">OFF</button>
+    <script>
+        var colour=document.getElementById('colour');
+        var colchange=document.getElementById('colchange');
+        function change(){
+            colchange.style.backgroundColor=colchange.style.backgroundColor=='white'?'yellow':'yellow';
+        }
+        function change1(){
+            colchange.style.backgroundColor=colchange.style.backgroundColor=='yellow'?'white': 'white';
+        }
+    </script>
+</body>
+</html>

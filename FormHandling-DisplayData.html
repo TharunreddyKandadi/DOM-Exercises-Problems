@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin:5px;
+        }
+        /* #contact{
+            margin: 5px;
+        } */
+    </style>
+</head>
+<body>
+    <form  id="ok">
+     Name : <input  type="text"><br>
+     Number :<input type="number"><br>
+     Email :<input type="email"><br>
+     Image :<input type="file"><br>
+     <input type="submit" value="Add Contact">
+    </form>
+    <div id="content">
+
+    </div>
+    <script>
+    
+        document.getElementById('ok').addEventListener('submit',myfunction);
+        var content=document.getElementById('content');
+        
+        function myfunction(e){
+            e.preventDefault();
+            let arr=['Name :','Number :','Email :','Image :'];
+            var str='';
+            var div=document.createElement('div');
+            str+=`<img src=${e.target.elements[3].value}</img>`
+            for(let i=0;i<e.target.elements.length-1;i++){
+                if(arr[i]=='Image :'){
+                    continue;
+                }
+                var z= e.target.elements[i].value;
+                str+=`<p>${arr[i]} ${z}</p>`;
+            }
+            div.innerHTML=str;
+            div.style.backgroundColor='yellow'
+            div.style.borderColor='red';
+            div.style.borderStyle='solid';
+            div.style.borderRadius='12px';
+            div.style.width='350px';
+            div.style.padding='8px';
+            div.style.margin='10px';
+            content.appendChild(div);
+
+
+        }
+         
+    </script>
+</body>
+</html>

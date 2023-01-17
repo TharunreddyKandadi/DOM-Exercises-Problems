@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <button onclick="change()" id="boolean">Toggle</button> <span id="input" style="margin-left: 10px;">false</span>
+    </div>
+    <script>
+        var boolean=document.getElementById('boolean');
+        var input=document.getElementById('input');
+        function change(){
+        input.innerHTML=input.innerHTML=='true'?'false':'true';
+        }
+    </script>
+</body>
+</html>

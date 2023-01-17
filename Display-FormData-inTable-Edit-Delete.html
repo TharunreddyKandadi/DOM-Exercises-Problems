@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin: 5px;
+        }
+        button{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="contactDetails">
+       FullName : <input type="text"><br>
+       ContactNo : <input type="number"><br>
+       EmailID : <input type="email"><br>
+        <input type="submit" value="Add Contact"><br>
+    </form>
+    <button onclick="acd()">A-Z</button>
+    <button onclick="dcd()">Z-A</button>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>FullName</th>
+                <th>ContactNo</th>
+                <th>EmailID</th>
+                <th>Modify</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody id="addingData">
+
+        </tbody>
+    </table>
+    <script>
+        let arr=[];
+        var addingData= document.getElementById('addingData')
+        var contactDetails=document.getElementById('contactDetails');
+        contactDetails.addEventListener('submit',myfunction);
+        function myfunction(e){
+            e.preventDefault();
+            let tr=document.createElement('tr');
+            for(let i=0;i<e.target.elements.length-1;i++){
+                let newtd=document.createElement('td');
+                newtd.innerHTML=e.target.elements[i].value;
+                tr.appendChild(newtd);
+            }
+            let array=['Edit','Delete']
+            let click=['editing(this)','Deleting(this)']
+            let styling=['green','red'];
+            let s='';
+            for(let i=0;i<array.length;i++){
+            let newtd=document.createElement('td');
+            s=`<button onclick=${click[i]} style=background-color:${styling[i]}>${array[i]}</button>`
+            newtd.innerHTML = s;
+            tr.appendChild(newtd);
+        }
+            arr.push(tr);
+            addingData.appendChild(tr);
+        }
+        var inputTag=document.getElementsByTagName('input');
+        function editing(a){
+            for(let i=0;i<inputTag.length-1;i++){
+                inputTag[i].value=a.parentElement.parentElement.children[i].innerHTML;
+            }
+        }
+        function Deleting(a){
+            a.parentElement.parentElement.remove();
+        }
+        function acd(){
+            arr.sort((a,b)=>{
+               return a.children[0].innerHTML.toLowerCase()<b.children[0].innerHTML.toLowerCase()? -1:1;
+            })
+            addingData.innerHTML='';
+            for(let i=0;i<arr.length;i++){
+                addingData.appendChild(arr[i]);
+            }
+        }
+        function dcd(){
+            arr.sort((a,b)=>{
+               return a.children[0].innerHTML.toLowerCase()<b.children[0].innerHTML.toLowerCase()? 1:-1;
+            })
+            addingData.innerHTML='';
+            for(let i=0;i<arr.length;i++){
+                addingData.appendChild(arr[i]);
+            }
+        }
+    </script>
+</body>
+</html>
